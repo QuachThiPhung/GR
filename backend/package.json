@@ -10,7 +10,8 @@
     "client": "npm start --prefix ../frontend",
     "dev": "concurrently --kill-others-on-fail \"npm run server-dev\" \"npm run client\"",
     "seed:data": "node seeder/seeder",
-    "seed:data-d": "node seeder/seeder -d"
+    "seed:data-d": "node seeder/seeder -d",
+    "server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,6 @@
   "devDependencies": {
     "concurrently": "^7.1.0",
     "jest": "^29.0.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.22"
   }
 }

@@ -6,6 +6,7 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
 const app = express();
+const { errorHandler, notFound } = require('./middleware/errorHandler');
 
 app.use(helmet({
     contentSecurityPolicy: false, 
@@ -115,6 +116,9 @@ app.use((error, req, res, next) => {
   }
 });
 
+app.use(notFound);
+app.use(errorHandler);
+
 const PORT = process.env.PORT || 5000;
 
-httpServer.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
