@@ -54,6 +54,7 @@ const CreateProductPageComponent = ({
       count: form.count.value,
       price: form.price.value,
       category: form.category.value,
+      resident: form.resident.value,
       attributesTable: attributesTable,
     };
     if (event.currentTarget.checkValidity() === true) {
