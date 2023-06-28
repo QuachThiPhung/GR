@@ -28,9 +28,9 @@ const products = [
       { path: "/images/monitors-category.png" },
       { path: "/images/tablets-category.png" },
     ],
-    rating: 5,
-    reviewsNumber: 5,
-    reviews: [],
+    // rating: 5,
+    // reviewsNumber: 5,
+    // reviews: [],
     attrs: [
       { key: "color", value: "black" },
       { key: "RAM", value: "1 TB" },

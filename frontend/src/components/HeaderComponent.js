@@ -14,7 +14,7 @@ import {
 } from "react-bootstrap";
 
 import { LinkContainer } from "react-router-bootstrap";
-import { NavLink, Link, useNavigate, Route } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { logout } from "../redux/actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -22,11 +22,11 @@ import { getCategories } from "../redux/actions/categoryActions";
 import socketIOClient from "socket.io-client";
 import { BsSearch } from "react-icons/bs";
 import { setChatRooms, setSocket, setMessageReceived, removeChatRoom } from "../redux/actions/chatActions";
-import compare from "../images/compare.svg";
-import wishlist from "../images/wishlist.svg";
-import user from "../images/user.svg";
-import cart from "../images/cart.svg";
-import menu from "../images/menu.svg";
+// import compare from "../images/compare.svg";
+// import wishlist from "../images/wishlist.svg";
+// import user from "../images/user.svg";
+// import cart from "../images/cart.svg";
+// import menu from "../images/menu.svg";
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
@@ -84,7 +84,7 @@ const HeaderComponent = () => {
 
   return (
     <>
-    <header className="header-top-strip py-3">
+      <header className="header-top-strip py-3">
         <Container fluid="xxl">
           <Row>
             <Col xs={6}>
@@ -102,85 +102,79 @@ const HeaderComponent = () => {
             </Col>
           </Row>
         </Container>
-    </header> 
+      </header>
 
-    <Navbar collapseOnSelect expand="lg" bg="dark" className="header-upper">
-      <Container>
-        
-        <LinkContainer to="/">
-          <Navbar.Brand className="text-white" href="/"><h2>Shopee</h2></Navbar.Brand>
-        </LinkContainer>
-        
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <InputGroup>
-              <DropdownButton id="dropdown-basic-button" title={searchCategoryToggle}>
-                <Dropdown.Item onClick={() => setSearchCategoryToggle("All")}>All</Dropdown.Item>
-                {categories.map((category, id) => (
-                  <Dropdown.Item key={id} onClick={() => setSearchCategoryToggle(category.name)}>{category.name}</Dropdown.Item>
-                ))}
-              </DropdownButton>
-              <Form.Control onKeyUp={submitHandler} onChange={(e) => setSearchQuery(e.target.value)} type="text" placeholder="Search product here..." />
-              <Button onClick={submitHandler} variant="warning">
-                {/* <i className="bi bi-search text-dark"></i> */}
-                <BsSearch className="fs-6" />
-              </Button>
-            </InputGroup>
-          </Nav>
-          <Nav>
-            {userInfo.isAdmin ? (
-              <LinkContainer to="/admin/orders">
+      <Navbar collapseOnSelect expand="lg" bg="dark" className="header-upper">
+        <Container>
+
+          <LinkContainer to="/">
+            <Navbar.Brand className="text-white" href="/"><h2>Shopee</h2></Navbar.Brand>
+          </LinkContainer>
+
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <InputGroup>
+                <DropdownButton id="dropdown-basic-button" title={searchCategoryToggle}>
+                  <Dropdown.Item onClick={() => setSearchCategoryToggle("All")}>All</Dropdown.Item>
+                  {categories.map((category, id) => (
+                    <Dropdown.Item key={id} onClick={() => setSearchCategoryToggle(category.name)}>{category.name}</Dropdown.Item>
+                  ))}
+                </DropdownButton>
+                <Form.Control onKeyUp={submitHandler} onChange={(e) => setSearchQuery(e.target.value)} type="text" placeholder="Search product here..." />
+                <Button onClick={submitHandler} variant="warning">
+                  {/* <i className="bi bi-search text-dark"></i> */}
+                  <BsSearch className="fs-6" />
+                </Button>
+              </InputGroup>
+            </Nav>
+            <Nav>
+              {userInfo.isAdmin ? (
+                <LinkContainer to="/admin/orders">
+                  <Nav.Link>
+                    <p className="text-white">Admin</p>
+                    {messageReceived && <span className="position-absolute top-1 start-10 translate-middle p-2 bg-danger border border-light rounded-circle"></span>}
+
+                  </Nav.Link>
+                </LinkContainer>
+              ) : userInfo.name && !userInfo.isAdmin ? (
+                <NavDropdown title={<p className="text-white p-0">{`${userInfo.name} ${userInfo.lastName}`}</p>}  id="collasible-nav-dropdown">
+                  <NavDropdown.Item
+                    eventKey="/user/my-orders"
+                    as={Link}
+                    to="/user/my-orders"
+                  >
+                    My orders
+                  </NavDropdown.Item>
+                  <NavDropdown.Item eventKey="/user" as={Link} to="/user">
+                    My profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => dispatch(logout())} >
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <>
+                  <LinkContainer to="/login">
+                    <Nav.Link > <p class="text-white">Login </p></Nav.Link>
+                  </LinkContainer>
+                </>
+              )}
+
+              <LinkContainer to="/cart">
                 <Nav.Link>
-                  Admin
-                  {messageReceived && <span className="position-absolute top-1 start-10 translate-middle p-2 bg-danger border border-light rounded-circle"></span>}
-
+                  <Badge pill bg="danger">
+                    {itemsCount === 0 ? "" : itemsCount}
+                  </Badge>
+                  <i className="bi bi-cart-dash text-white"></i>
+                  <span className="ms-1 text-white">CART</span>
                 </Nav.Link>
               </LinkContainer>
-            ) : userInfo.name && !userInfo.isAdmin ? (
-              <NavDropdown
-                title={`${userInfo.name} ${userInfo.lastName}`}
-                id="collasible-nav-dropdown"
-              >
-                <NavDropdown.Item
-                  eventKey="/user/my-orders"
-                  as={Link}
-                  to="/user/my-orders"
-                >
-                  My orders
-                </NavDropdown.Item>
-                <NavDropdown.Item eventKey="/user" as={Link} to="/user">
-                  My profile
-                </NavDropdown.Item>
-                <NavDropdown.Item onClick={() => dispatch(logout())}>
-                  Logout
-                </NavDropdown.Item>
-              </NavDropdown>
-            ) : (
-              <>
-                <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
-                </LinkContainer>
-              </>
-            )}
-
-            <LinkContainer to="/cart">
-              <Nav.Link>
-                <Badge pill bg="danger">
-                  {itemsCount === 0 ? "" : itemsCount}
-                </Badge>
-                <i className="bi bi-cart-dash"></i>
-                <span className="ms-1">CART</span>
-              </Nav.Link>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  </>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 

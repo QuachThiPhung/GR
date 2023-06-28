@@ -28,9 +28,11 @@ const productSchema = mongoose.Schema({
     },
     rating: {
         type: Number,
+        default: 0,
     },
     reviewsNumber: {
         type: Number,
+        default: 0,
     },
     sales: {
         type: Number,
@@ -38,6 +40,7 @@ const productSchema = mongoose.Schema({
     },
     resident: {
         type: String,
+        default: "1",
         required: true,
     },
     attrs: [

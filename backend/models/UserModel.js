@@ -41,6 +41,10 @@ const userSchema = mongoose.Schema({
     required: true,
     default: false,
   },
+  likedProducts: [{
+    type: String,
+    default: [],
+  }]
 },{
     timestamps: true,
 });

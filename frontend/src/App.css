@@ -744,3 +744,7 @@
   }
   /* Shipping page ends here */
   
+
+  .dropdown-toggle::after {
+    display: none !important;
+  }
