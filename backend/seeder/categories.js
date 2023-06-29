@@ -1,80 +1,88 @@
 const categories = [
-    {
-    name: "Computers",
-    description:
-      "Computers - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-    attrs: [
-      { key: "RAM", value: ["1 TB", "2 TB", "4 TB"] },
-      { key: "color", value: ["blue", "red", "green", "black"] },
-    ],
-  },
-  {
-    name: "Computers/Laptops",
-    description:
-      "Computers/Laptops - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-  },
-  {
-    name: "Computers/Laptops/Lenovo",
-    description:
-      "Computers/Laptops/Lenovo - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-  },
-  {
-    name: "Computers/Laptops/Dell",
-    description:
-      "Computers/Laptops/Dell - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-  },
-  {
-    name: "Tablets",
-    description:
-      "Tablets - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-  },
-  {
-    name: "Monitors",
-    description:
-      "Monitors - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/monitors-category.png",
-  },
-  {
-    name: "Games",
-    description:
-      "Games - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/games-category.png",
-  },
-  {
-    name: "Printers",
-    description:
-      "Printers - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-  },
-  {
-    name: "Software",
-    description:
-      "Software - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/monitors-category.png",
-  },
-  {
-    name: "Cameras",
-    description:
-      "Cameras - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/games-category.png",
-  },
   {
     name: "Books",
     description:
-      "Books - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/tablets-category.png",
-    attrs: [{ key: "genre", value: ["movie", "comedy", "thriller"] }],
+      "The internet’s largest bookstore.",
+    image: "/images/books.jpg",
+    attrs: [
+      { key: "type", value: ["fiction", "comic", "novel", "dictionary", "reference"] },
+    ],
   },
-  {
-    name: "Videos",
+{
+    name: "Vegetables",
     description:
-      "Videos - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, magnam qui. Accusamus similique placeat at nisi autem eaque molestiae velit.",
-    image: "/images/monitors-category.png",
+      "Offering only the freshest vegetables at the lowest prices.",
+    image: "/images/vegetables.jpg",
+    attrs: [
+      { key: "type", value: ["broccoli", "carrot", "potato", "cabbage", "onion"] }
+    ],
+  },
+{
+    name: "Makeup products",
+    description:
+      "Where beauty and confidence meet.",
+    image: "/images/makeup.jpg",
+    attrs: [
+      { key: "type", value: ["lipstick", "foundation", "concealer", "mascara"] },
+      { key: "size", value: ["full size", "minisize"] },
+    ],
+  },
+{
+    name: "Skincare products",
+    description:
+      "One step to flawless beauty.",
+    image: "/images/skincare.jpg",
+    attrs: [
+      { key: "type", value: ["lip balm", "lotion", "serum", "cleanser", "eye cream"] },
+      { key: "size", value: ["full size", "minisize"] },
+    ],
+  },
+{
+    name: "Furniture",
+    description:
+      "Quality Furniture for Quality Living.",
+    image: "/images/furniture.jpg",
+    attrs: [
+      { key: "type", value: ["sofa", "table", "bed", "dresser", "cupboard"] },
+      { key: "material", value: ["wood", "plywood", "steel", "polypropylene"] },
+    ],
+  },
+{
+    name: "Electronics",
+    description:
+      "Your electronic pharmacy.",
+    image: "/images/electronics.jpg",
+    attrs: [
+      { key: "type", value: ["computer", "television", "cooker", "dishwasher", "oven"] },
+    ],
+  },
+{
+    name: "Snacks",
+    description:
+      "Enjoy the good taste.",
+    image: "/images/snacks.jpg",
+    attrs: [
+      { key: "type", value: ["chips", "candy", "cookies", "popcorn", "cereal"] },
+    ],
+  },
+{
+    name: "Stationery",
+    description:
+      "Everything from stationery to giftware.",
+    image: "/images/stationery.jpg",
+    attrs: [
+      { key: "type", value: ["pen", "pencil", "marker", "notebook", "eraser"] },
+    ],
+  },
+{
+    name: "Drinks",
+    description:
+      "Taking beverages to the next level.",
+    image: "/images/drinks.jpg",
+    attrs: [
+      { key: "type", value: ["milk", "juice", "beer", "coffee", "carbonated drinks"] },
+      { key: "packaging", value: ["glass", "plastic", "paperboard", "can"] },
+    ],
   },
 ]
 

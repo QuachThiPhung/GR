@@ -7,7 +7,16 @@ import newsletter from "../images/newsletter.png";
 const FooterComponent = () => {
   return (
     <>
-    <footer className="py-4">
+    <footer className="footer mt-auto py-3" style={{ backgroundColor: '#f8f9fa' }}>
+      <Container>
+        <Row>
+          <Col>
+            <p className="text-center">Your footer content goes here</p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+    {/* <footer className="py-4">
     <Container fluid>
       <Row className="align-items-center">
         <Col xs={5}>
@@ -116,7 +125,7 @@ const FooterComponent = () => {
         </Col>
       </Row>
     </Container>
-  </footer>
+  </footer> */}
   </>
   );
 };
